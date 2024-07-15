@@ -4,11 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-user-menu',
   standalone: true,
   imports: [],
-  template: `    
-    <a class="btn">Button</a>
-  `,
-  styles: ``
+  template: ` <a class="btn">Button</a> `,
+  styles: ``,
 })
-export class UserMenuComponent {
-
-}
+export class UserMenuComponent {}
