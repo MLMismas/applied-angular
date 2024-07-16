@@ -9,21 +9,16 @@ import { RouterLink } from '@angular/router';
   template: `
     <ul class="menu menu-horizontal px-1">
       @for(link of listOfLinks(); track link) {
-      <li>
+      <!-- <li>
         <a [routerLink]="link.link">{{ link.label }}</a>
-      </li>
-      }
-      <!-- <li><a>Item 1</a></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul class="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li> -->
+      </li> -->
+      } <<!-- @if(link.children) {
+      <app-main-menu-child-links [link]="link" />
+    } @else {
+      <app-main-menu-link [link]="link" />
+    } -->
+      <!-- If the link has children, have another component display that 
+     if it doesn't have another component that is responsible for display it -->
     </ul>
   `,
   styles: ``,
