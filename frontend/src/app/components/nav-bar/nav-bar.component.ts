@@ -30,10 +30,5 @@ export class NavBarComponent {
       label: 'Students',
       link: '/students',
     },
-    {
-      label: 'Taco Street',
-      link: 'ts.com',
-      children: [{ label: 'Locations', link: 'locations.com' }],
-    },
   ]);
 }
