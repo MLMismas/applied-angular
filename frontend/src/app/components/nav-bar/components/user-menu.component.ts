@@ -10,10 +10,10 @@ import { UserFeature } from '../../../state/user/user-feature';
   imports: [AsyncPipe],
   template: `
     <div class="btn">
-      @if(user() === '') {
-      <span class="loading loading-infinity loading-md"></span>
-      }@else {
+      @if(userLoaded()) {
       {{ user() }}
+      }@else {
+      <span class="loading loading-infinity loading-md"></span>
       }
     </div>
   `,
@@ -22,4 +22,5 @@ import { UserFeature } from '../../../state/user/user-feature';
 export class UserMenuComponent {
   store = inject(Store);
   user = this.store.selectSignal(UserFeature.selectSub);
+  userLoaded = this.store.selectSignal(UserFeature.selectUserLoaded);
 }
