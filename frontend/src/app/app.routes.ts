@@ -22,17 +22,9 @@ export const routes: Routes = [
   },
   {
     path: 'dashboard',
-    canActivate: [userIsLoadedGuard()],
     loadChildren: () =>
       import('./components/dashboard/dashboard.routes').then(
         (r) => r.DASHBOARD_ROUTES
       ),
   },
 ];
-
-function userIsLoadedGuard(): CanActivateFn {
-  return () => {
-    const store = inject(Store);
-    return store.selectSignal(UserFeature.selectUserLoaded)();
-  };
-}

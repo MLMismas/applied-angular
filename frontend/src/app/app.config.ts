@@ -17,6 +17,6 @@ export const appConfig: ApplicationConfig = {
     provideStore(),
     provideState(UserFeature),
     provideStoreDevtools(),
-    provideEffects({ x: loadUser }),
+    provideEffects({ loadUser: loadUser }),
   ],
 };

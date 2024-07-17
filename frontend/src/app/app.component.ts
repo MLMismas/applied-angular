@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, effect } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { WelcomeComponent } from './components/welcome.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { Store } from '@ngrx/store';
 import { UserActions } from './state/user/actions';
+import { UserFeature } from './state/user/user-feature';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,13 @@ import { UserActions } from './state/user/actions';
   imports: [RouterOutlet, WelcomeComponent, NavBarComponent],
 })
 export class AppComponent {
-  constructor(store: Store) {
+  constructor(store: Store, router: Router) {
     store.dispatch(UserActions.getTheUser());
+    // const userLoaded = store.selectSignal(UserFeature.selectUserLoaded);
+    // effect(() => {
+    //   if(userLoaded()) {
+    //     router.navigateByUrl('/dashboard');
+    //   }
+    // })
   }
 }
